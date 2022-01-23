@@ -1,0 +1,37 @@
+<!--right - darstellung von items-tasks einer liste-->
+<div class="right item">
+  <div class="right_NameRemList">
+    <h1>{{ remList_1 }}</h1>
+    <h2 class="listlength">{{ listlength }}</h2>
+  </div>
+
+  <div class="items" *ngFor="let item of items">
+
+   <button class="mark">.</button>
+<!--[(ngModel)]="item"-->
+     <input  #item value="{{ item }}" (keyup.enter)="onEnter()"/>
+      <div class="date"><input type="date" /></div>
+    </div>
+     <!-- <p>{{value}}</p>
+     (click)="readContent(item); item.value = ''"
+     (keyup.enter)="addItem(item.value); item.value = ''"-->
+
+
+
+<!--input *ngIf="clicked"value={{item}}-->
+
+<div class="items" *ngIf="isVisible">
+  <button class="mark">.</button>
+  <input appAutoFocusDirective  #newItem
+    (keyup.enter)="addItem(newItem.value); newItem.value = ''"/>
+    <div class="date"><input type="date" /></div>
+</div>
+  <button class="addItemButton" (click)="setVisible()">+</button>
+</div>
+<!-- <input
+
+    type="text"
+    value="{{ itemObject.getValue() }}"
+    (change)="editValue($event)"/>
+  </div>
+-->
